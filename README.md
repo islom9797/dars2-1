@@ -1,3 +1,4 @@
+<h3>@NotNull annotatsiyasini ishlatishning yo'li</h3>
 <pre>
   <code>
     import jakarta.validation.constraints.NotNull;
@@ -33,6 +34,7 @@ public class CompanyDto {
   </code>
 </pre>
 
+<p>Biz <b>@Valid</b> so'zi bizga NotNullni ishlatayotganimizni BIldiradi va avtomat Value null bo'lsa qiymatning null degan error qaytaradi</p>
 
 <pre>
   <code>
@@ -50,10 +52,7 @@ public class CompanyDto {
                 ? HttpStatus.ACCEPTED : HttpStatus.CONFLICT).body(apiResponse);
     }
 
-    @DeleteMapping("/customer/{id}")
-    public ApiResponse deleteCustomer(@PathVariable int id) {
-        return customerService.deleteCustomer(id);
-    }
+ 
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
